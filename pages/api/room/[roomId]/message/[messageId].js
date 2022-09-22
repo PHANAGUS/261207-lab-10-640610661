@@ -19,6 +19,5 @@ export default function roomIdMessageIdRoute(req, res) {
 
   rooms[roomIdx].messages.splice(msgIdx, 1);
   writeDB(rooms);
-
   return res.json({ ok: true });
 }

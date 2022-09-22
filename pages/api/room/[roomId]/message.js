@@ -27,22 +27,17 @@ export default function roomIdMessageRoute(req, res) {
 
     //create new id
     const newId = uuidv4();
-    const newMassage = [
-      {
-        messageId: newId,
-        text: text,
-      },
-    ];
+    const newMassage = {
+      messageId: newId,
+      text: text,
+    };
     // const newMs = rooms[roomIdx].messages;
     // newMs.push(newMassage);
     // rooms[roomIdx].messages = newMs;
 
     rooms[roomIdx].messages.push(newMassage);
-    rooms.push({ text: "hi" });
 
     writeDB(rooms);
-    // return res.json({ ok: true, massage: newMassage });
-    // console.log(rooms[roomIdx].messages);
-    return res.json({ ok: true, rooms });
+    return res.json({ ok: true, massage: newMassage });
   }
 }
